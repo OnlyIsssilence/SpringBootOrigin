@@ -1,4 +1,4 @@
-package com.onlyisssilence.muya.domain;
+package com.onlyisssilence.muya.domain.entity;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
