@@ -1,8 +1,8 @@
 package com.onlyisssilence.muya.controller;
 
-import com.onlyisssilence.muya.domain.UserInfoRepository;
+import com.onlyisssilence.muya.domain.db1.UserInfoRepository;
 import com.onlyisssilence.muya.domain.entity.MuyaProperties;
-import com.onlyisssilence.muya.domain.entity.UserInfo;
+import com.onlyisssilence.muya.domain.db1.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

@@ -1,6 +1,5 @@
-package com.onlyisssilence.muya.domain;
+package com.onlyisssilence.muya.domain.db1;
 
-import com.onlyisssilence.muya.domain.entity.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

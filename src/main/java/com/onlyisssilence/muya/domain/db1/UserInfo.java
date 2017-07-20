@@ -1,4 +1,4 @@
-package com.onlyisssilence.muya.domain.entity;
+package com.onlyisssilence.muya.domain.db1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
