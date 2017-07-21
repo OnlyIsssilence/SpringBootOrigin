@@ -1,8 +1,10 @@
 package com.onlyisssilence.muya.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.onlyisssilence.muya.domain.db1.UserInfoRepository;
 import com.onlyisssilence.muya.domain.entity.MuyaProperties;
 import com.onlyisssilence.muya.domain.db1.UserInfo;
+import com.onlyisssilence.muya.domain.view.BasicView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -29,6 +31,7 @@ public class HelloWorldController {
     private UserInfoRepository userInfoRepository;
 
     @RequestMapping("/hello")
+    @JsonView(BasicView.class)
     public String index() {
         return muyaProperties.toString();
     }
