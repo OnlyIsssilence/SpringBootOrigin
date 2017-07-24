@@ -85,6 +85,17 @@
 			<version>1.3.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-amqp -->
+		<!--rabbit消息队列-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+			<version>1.5.4.RELEASE</version>
+		</dependency>
+
+
+
+
 
 
 	</dependencies>
