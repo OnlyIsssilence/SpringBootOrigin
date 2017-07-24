@@ -13,9 +13,9 @@ import java.util.Date;
  * Date  : 2017/7/24
  * Description:spring自带支持定时器的任务实现，直接启动包即可
  */
-@Component
+/*@Component
 @Configurable
-@EnableScheduling
+@EnableScheduling*/
 public class ScheduledTasks{
 
     public final static long SECOND = 1 * 1000;
@@ -48,5 +48,4 @@ public class ScheduledTasks{
     private SimpleDateFormat dateFormat(){
         return new SimpleDateFormat ("HH:mm:ss");
     }
-
 }
