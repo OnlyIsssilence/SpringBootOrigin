@@ -55,7 +55,7 @@ public class SchedledConfiguration {
     public CronTriggerFactoryBean cronJobTrigger(MethodInvokingJobDetailFactoryBean jobDetail) {
         CronTriggerFactoryBean tigger = new CronTriggerFactoryBean();
         tigger.setJobDetail(jobDetail.getObject());
-        tigger.setCronExpression("0/1 * * * * ?");// 初始时的cron表达式
+        tigger.setCronExpression("0 0/10 * * * ?");// 初始时的cron表达式
         tigger.setName("230");// trigger的name
         return tigger;
 

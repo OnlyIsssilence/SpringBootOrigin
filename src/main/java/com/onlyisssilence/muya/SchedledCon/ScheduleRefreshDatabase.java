@@ -19,7 +19,7 @@ import javax.annotation.Resource;
 @EnableScheduling
 @Component
 public class ScheduleRefreshDatabase {
-    @Autowired
+    /*@Autowired
     private ConfigRepository repository;
 
     @Resource(name = "jobDetail")
@@ -51,5 +51,5 @@ public class ScheduleRefreshDatabase {
             scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
             currentCron = searchCron;
         }
-    }
+    }*/
 }
