@@ -5,6 +5,8 @@ import com.onlyisssilence.muya.domain.db1.UserInfoRepository;
 import com.onlyisssilence.muya.domain.entity.MuyaProperties;
 import com.onlyisssilence.muya.domain.db1.UserInfo;
 import com.onlyisssilence.muya.domain.view.BasicView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -24,6 +26,8 @@ import java.util.UUID;
  */
 @RestController
 public class HelloWorldController {
+    public final static Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
+
     @Autowired
     private MuyaProperties muyaProperties;
 
@@ -40,7 +44,7 @@ public class HelloWorldController {
     @Cacheable(value="userInfo-key")
     public UserInfo getUser() {
         UserInfo user=userInfoRepository.findByUserName("bb2");
-        System.out.println("no cache");
+        logger.info("no cache");
         return user;
     }
 

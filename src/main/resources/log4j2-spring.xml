@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5p] %d %c - %m%n"/>
+        </Console>
+
+        <File name="File" fileName="dist/my.log">
+            <PatternLayout pattern="[%-5p] %d %c - %m%n"/>
+        </File>
+
+        <File name="File1" fileName="dist/my1.log">
+            <PatternLayout pattern="[%-5p] %d %c - %m%n"/>
+        </File>
+
+        <File name="File2" fileName="dist/my2.log">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+        </File>
+
+        <File name="File3" fileName="dist/my3.log">
+            <PatternLayout pattern="%d %-5p [%t] %-25c{1} - %m%n"/>
+        </File>
+
+        <File name="File4" fileName="dist/my4.log">
+            <PatternLayout pattern="%d %-5p [%t] %-25c{1} - %m%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="com.onlyisssilence.muya.SchedledCon" level="info" additivity = "false">
+            <AppenderRef ref="File1"/>
+            <!--<AppenderRef ref="Console"/>-->
+        </Logger>
+
+        <Logger name="com.onlyisssilence.muya.SchedledCon.ScheduleRefreshDatabase" level="info" additivity = "false">
+            <AppenderRef ref="File2"/>
+            <!--<AppenderRef ref="Console"/>-->
+        </Logger>
+
+        <Logger name="com.onlyisssilence.muya.SchedledCon.ScheduleTask" level="info" additivity = "true">
+            <AppenderRef ref="File3"/>
+            <!--<AppenderRef ref="Console"/>-->
+        </Logger>
+
+        <Logger name="java.sql" level="trace" additivity = "true">
+            <AppenderRef ref="File4"/>
+            <!--<AppenderRef ref="Console"/>-->
+        </Logger>
+
+        <Logger name="com.onlyisssilence.muya.log4j2test" level="info" additivity = "false">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="com.onlyisssilence.muya" level="info" additivity = "false">
+            <!--<AppenderRef ref="File"/>-->
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="info">
+            <!--<AppenderRef ref="Console"/>-->
+            <!--<AppenderRef ref="taoge"/>-->
+        </Root>
+    </Loggers>
+
+</Configuration>
+
+

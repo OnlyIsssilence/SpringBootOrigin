@@ -4,6 +4,8 @@ import com.onlyisssilence.muya.domain.db1.UserInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -23,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TestRedis {
+    public final static Logger logger = LoggerFactory.getLogger(TestRedis.class);
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
@@ -46,9 +49,9 @@ public class TestRedis {
         //redisTemplate.delete("com.neo.f");
         boolean exists=redisTemplate.hasKey("com.neo.f");
         if(exists){
-            System.out.println("exists is trueyoyoyoyoyooy");
+            logger.info("exists is trueyoyoyoyoyooy");
         }else{
-            System.out.println("exists is falsehahhahahah");
+            logger.info("exists is falsehahhahahah");
         }
         // Assert.assertEquals("aa", operations.get("com.neo.f").getUserName());
     }

@@ -1,7 +1,10 @@
 package com.onlyisssilence.muya.SchedledCon;
 
+import com.onlyisssilence.muya.controller.HelloWorldController;
 import com.onlyisssilence.muya.domain.db1.ConfigRepository;
 import org.quartz.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -19,6 +22,8 @@ import javax.annotation.Resource;
 @EnableScheduling
 @Component
 public class ScheduleRefreshDatabase {
+    public final static Logger logger = LoggerFactory.getLogger(ScheduleRefreshDatabase.class);
+
     @Autowired
     private ConfigRepository repository;
 
@@ -36,8 +41,8 @@ public class ScheduleRefreshDatabase {
         CronTrigger trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
         String currentCron = trigger.getCronExpression();// 当前Trigger使用的
         String searchCron = repository.findOne(1L).getCron();// 从数据库查询出来的
-        System.out.println(currentCron);
-        System.out.println(searchCron);
+        logger.info(currentCron);
+        logger.info(searchCron);
         if (currentCron.equals(searchCron)) {
             // 如果当前使用的cron表达式和从数据库中查询出来的cron表达式一致，则不刷新任务
         } else {

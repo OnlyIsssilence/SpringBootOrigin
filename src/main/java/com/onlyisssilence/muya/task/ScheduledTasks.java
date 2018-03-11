@@ -1,5 +1,7 @@
 package com.onlyisssilence.muya.task;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,6 +19,8 @@ import java.util.Date;
 @Configurable
 @EnableScheduling*/
 public class ScheduledTasks{
+    public final static Logger logger = LoggerFactory.getLogger(ScheduledTasks.class);
+
 
     public final static long SECOND = 1 * 1000;
     /**
@@ -24,7 +28,7 @@ public class ScheduledTasks{
      */
     @Scheduled(fixedRate = SECOND * 30)
     public void fixedDelayJob(){
-        System.out.println ("fixedDelayJob Tasks Examples: The time is now " + dateFormat ().format (new Date()));
+        logger.info ("fixedDelayJob Tasks Examples: The time is now " + dateFormat ().format (new Date()));
     }
 
     /**
@@ -32,7 +36,7 @@ public class ScheduledTasks{
      */
     @Scheduled(fixedRate = SECOND * 3)
     public void fixedRateJob (){
-        System.out.println ("fixedRateJob Tasks Examples: The time is now " + dateFormat ().format (new Date()));
+        logger.info ("fixedRateJob Tasks Examples: The time is now " + dateFormat ().format (new Date()));
     }
 
     //每1分钟执行一次
@@ -42,7 +46,7 @@ public class ScheduledTasks{
      */
     @Scheduled(cron = "0/1 * *  * * * ")
     public void cronJob(){
-        System.out.println ("cronJob Tasks Examples By Cron: The time is now " + dateFormat ().format (new Date ()));
+        logger.info ("cronJob Tasks Examples By Cron: The time is now " + dateFormat ().format (new Date ()));
     }
 
     private SimpleDateFormat dateFormat(){

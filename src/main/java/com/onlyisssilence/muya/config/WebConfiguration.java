@@ -1,6 +1,8 @@
 package com.onlyisssilence.muya.config;
 
 import org.apache.catalina.filters.RemoteIpFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,8 @@ import java.io.IOException;
  */
 @Configuration
 public class WebConfiguration {
+    public final static Logger logger = LoggerFactory.getLogger(WebConfiguration.class);
+
     @Bean
     public RemoteIpFilter remoteIpFilter() {
         return new RemoteIpFilter();
@@ -46,7 +50,7 @@ public class WebConfiguration {
                 throws IOException, ServletException {
             // TODO Auto-generated method stub
             HttpServletRequest request = (HttpServletRequest) srequest;
-            System.out.println("this is MyFilter,url :"+request.getRequestURI());
+            logger.info("this is MyFilter,url :"+request.getRequestURI());
             filterChain.doFilter(srequest, sresponse);
         }
 

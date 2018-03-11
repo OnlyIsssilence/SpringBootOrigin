@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
  @Cacheable(value="userInfo-key")
  public UserInfo getUser() {
  UserInfo user=userInfoRepository.findByUserName("bb2");
- System.out.println("no cache");
+ logger.info("no cache");
  return user;
  }
  * User: MuYa
